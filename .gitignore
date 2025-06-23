@@ -4,3 +4,6 @@ __pycache__/schemas.cpython-313.pyc
 app/__pycache__/main.cpython-313.pyc
 /app
 *.pyc
+*.pyc
+/__pycache__
+*.pyc
