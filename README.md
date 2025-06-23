@@ -172,9 +172,3 @@ In addition to automated tests, manual validation was done using the frontend (`
 * **Pydantic**: Data validation
 * **Uvicorn**: ASGI server
 * **Pytest + pytest-cov**: Testing framework and coverage tool
-
----
-
-## 📷 Screenshot
-
-`screenshot_coverage.png`
