@@ -177,16 +177,4 @@ In addition to automated tests, manual validation was done using the frontend (`
 
 ## 📷 Screenshot
 
-Add your test coverage screenshot in the project folder and name it `screenshot_coverage.png` to match the README.
-
----
-
-## 📃 License
-
-This project is licensed under the MIT License.
-
----
-
-## 🔗 Submission
-
-Please include the GitHub link to this repository along with this updated README for Task 1 submission.
+`screenshot_coverage.png`
