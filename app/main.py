@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import router
-import models
-from database import engine
+from app import models
+from app.database import engine
 
 app = FastAPI()
 
