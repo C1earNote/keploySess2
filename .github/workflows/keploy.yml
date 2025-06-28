@@ -1,0 +1,7 @@
+- name: Install Keploy CLI
+  run: |
+    curl --silent -L https://keploy.io/ent/install.sh | bash
+
+- name: Run Keploy Test Suite
+  run: |
+    export KEPLOY_API_KEY=fJFavoo+9Y6sUalxQg== && keploy test-suite --app=822f219a-e0b2-477b-bf36-ed5e678bb480 --base-path https://petclinic-hosted.keploy.io/685f6c2609fe1f5119b77db3/api/ --cloud
