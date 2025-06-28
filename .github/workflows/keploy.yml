@@ -1,7 +1,40 @@
-- name: Install Keploy CLI
-  run: |
-    curl --silent -L https://keploy.io/ent/install.sh | bash
+name: Keploy API Test Suite
 
-- name: Run Keploy Test Suite
-  run: |
-    export KEPLOY_API_KEY=fJFavoo+9Y6sUalxQg== && keploy test-suite --app=da914258-11f5-4f7b-8246-2190fc2d0b7d --base-path http://127.0.0.1:8080/ --cloud
+on: [push, pull_request]
+
+jobs:
+  keploy-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout Code
+        uses: actions/checkout@v2
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install Python Dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install uvicorn
+
+      - name: 🚀 Start FastAPI App in Background
+        run: |
+          nohup uvicorn app.main:app --host 0.0.0.0 --port 8080 &
+
+      - name: 🛠️ Install Keploy CLI
+        run: |
+          curl --silent -L https://keploy.io/ent/install.sh | bash
+          sudo mv keploy /usr/local/bin/keploy
+
+      - name: 🧪 Run Keploy Test Suite
+        env:
+          KEPLOY_API_KEY: ${{ secrets.KEPLOY_API_KEY }}
+        run: |
+          sleep 10  # Wait for server to be fully up
+          keploy test-suite \
+            --app=da914258-11f5-4f7b-8246-2190fc2d0b7d \
+            --base-path=http://localhost:8080/ \
+            --cloud
