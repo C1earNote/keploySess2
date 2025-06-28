@@ -1,0 +1,8 @@
+.\keploy.exe --app=822f219a-e0b2-477b-bf36-ed5e678bb480 --base-path=http://localhost:8080/ --cloud
+
+Invoke-WebRequest -Uri "https://keploy.io/ent/install.sh" -OutFile "install.sh"
+>> bash install.sh   <- didnt work
+
+curl http://127.0.0.1:8000/openapi.json -o openapi.json
+
+export KEPLOY_API_KEY=fJFavoo+9Y6sUalxQg== && keploy test-suite --app=da914258-11f5-4f7b-8246-2190fc2d0b7d --base-path http://127.0.0.1:8080/ --cloud
